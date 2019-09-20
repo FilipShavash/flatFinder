@@ -105,7 +105,9 @@ class FlatFinder:
         except IndexError:
             number = 1
 
-        for page in range(0, int(number)):
+#        for page in range(0, int(number)):
+
+        for page in range(0, 1):
             url_page = url + '&page=' + str(page + 1)
             html_page = self.safe_call(url_page)
             offers = html_page.xpath('//table[@id="offers_table"]/tbody/tr/td[contains(@class,"offer")]')
