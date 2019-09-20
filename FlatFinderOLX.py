@@ -105,7 +105,7 @@ class FlatFinder:
         except IndexError:
             number = 1
 
-#        for page in range(0, int(number)):
+#    TODO FILSZ    for page in range(0, int(number)):
 
         for page in range(0, 1):
             url_page = url + '&page=' + str(page + 1)
@@ -331,9 +331,12 @@ class FlatFinder:
             # response = urllib.request.urlopen(url)
             response = self.safe_call(url, True)
             resp_json = json.loads(response)
-            latitude = resp_json['results'][0]['geometry']['location']['lat']
-            longitude = resp_json['results'][0]['geometry']['location']['lng']
-            if not flat['precise']:
+            latitude = 52.375489
+            longitude = 21.051834
+            if not len(resp_json['error_message']) > 0:
+                latitude = resp_json['results'][0]['geometry']['location']['lat']
+                longitude = resp_json['results'][0]['geometry']['location']['lng']
+            if not flat['precise'] and not len(resp_json['error_message']) > 0:
                 latitude = latitude + randint(0, 10) * 0.0001
                 longitude = longitude + randint(0, 10) * 0.0001
             flat['latitude'] = latitude
@@ -377,7 +380,7 @@ class FlatFinder:
         date_formatted = datetime.datetime.now().strftime("%d.%m.%Y %H:%M")
         smtp_server = "smtp.gmail.com"
         port = 465
-        sender_email = "decapromolist@gmail.com"
+        sender_email = os.environ['EMAIL_SENDER']
         receiver_email = os.environ['EMAIL_RECEIVER']
         password = os.environ['EMAIL_PASSWORD']
 
@@ -387,10 +390,10 @@ class FlatFinder:
         message["To"] = receiver_email
         receiver_emails = receiver_email.split(',')
 
-        url_flats1 = 'https://thof.github.io/draw_map.html?key={}&list={}&list={}'.format(self.api_key, file1, file2)
-        url_flats2 = 'https://thof.github.io/draw_map.html?key={}&list={}&list={}'.format(self.api_key, file3, file4)
-        url_flats3 = 'https://thof.github.io/print_unknown.html?list={}&list={}'.format(file1, file2)
-        url_flats4 = 'https://thof.github.io/print_unknown.html?list={}&list={}'.format(file3, file4)
+        url_flats1 = 'https://FilipShavash.github.io/draw_map.html?key={}&list={}&list={}'.format(self.api_key, file1, file2)
+        url_flats2 = 'https://FilipShavash.github.io/draw_map.html?key={}&list={}&list={}'.format(self.api_key, file3, file4)
+        url_flats3 = 'https://FilipShavash.github.io/print_unknown.html?list={}&list={}'.format(file1, file2)
+        url_flats4 = 'https://FilipShavash.github.io/print_unknown.html?list={}&list={}'.format(file3, file4)
 
         html = """\
         <html>
@@ -402,6 +405,14 @@ class FlatFinder:
             html = """{}\
                 <a href="{}">Mapa mieszkań</a><br>
             """.format(html, url_flats1)
+
+            for p in content1['id']:
+                html = """{}\
+                    <a href="{}">{}</a>
+                """.format(html, p['link'], p['title'])
+
+
+
         if [True for elem in content1 if not elem['address']] or [True for elem in content2 if not elem['address']]:
             html = """{}\
                 <a href= "{}">Mieszkania bez lokalizacji</a>
