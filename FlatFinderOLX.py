@@ -443,29 +443,29 @@ if __name__ == "__main__":
     print('\nChecking gumtree:')
     flat.get_flats_gumtree('flats_gumtree',
                            '/s-mieszkania-i-domy-sprzedam-i-kupie/warszawa/v1c9073l3200008p1?df=ownr&pr=,450000&sort=dt&order=desc', 'id_gumtree.json',  min_flat_size=38)
-    flat.get_geolocalization('flats_gumtree.json', flats_gumtree_geo)
+#    flat.get_geolocalization('flats_gumtree.json', flats_gumtree_geo)
     print('\nChecking olx:')
     flat.get_flats_olx('flats_olx',
                        '/nieruchomosci/mieszkania/sprzedaz/warszawa/?search%5Bfilter_float_price%3Ato%5D=450000&search%5Bfilter_float_m%3Afrom%5D=38&search%5Bfilter_enum_rooms%5D%5B0%5D=two&search%5Bfilter_enum_rooms%5D%5B1%5D=three&search%5Bfilter_enum_rooms%5D%5B2%5D=four&search%5Bphotos%5D=1&search%5Bprivate_business%5D=private&search%5Border%5D=created_at%3Adesc', 'id_olx.json')
-    flat.get_geolocalization('flats_olx.json', flats_olx_geo)
+#    flat.get_geolocalization('flats_olx.json', flats_olx_geo)
 
     print('\nKawalerki Checking gumtree:')
     flat.get_flats_gumtree('flats_kaw_gumtree',
                            '/s-mieszkania-i-domy-sprzedam-i-kupie/warszawa/v1c9073l3200008p1?df=ownr&pr=,330000&nr=10&sort=dt&order=desc',
                            'id_kaw_gumtree.json', min_flat_size=29)
-    flat.get_geolocalization('flats_kaw_gumtree.json', flats_kaw_gumtree_geo)
+#    flat.get_geolocalization('flats_kaw_gumtree.json', flats_kaw_gumtree_geo)
     print('\nKawalerki Checking olx:')
     flat.get_flats_olx('fla'
                        'ts_kaw_olx',
                        '/nieruchomosci/mieszkania/sprzedaz/warszawa/?search[filter_float_price%3Ato]=330000&search[filter_float_m%3Afrom]=29&search[filter_enum_rooms][0]=one&search[photos]=1&search[private_business]=private&search[order]=created_at%3Adesc',
                        'id_kaw_olx.json')
-    flat.get_geolocalization('flats_kaw_olx.json', flats_kaw_olx_geo)
+#    flat.get_geolocalization('flats_kaw_olx.json', flats_kaw_olx_geo)
 
-    # print flats where the geolocation in unknown
+    # print flats where the geolocation is unknown
     flat.print_uknown(flats_olx_geo)
     flat.print_uknown(flats_gumtree_geo)
 
-    # print flats where the geolocation in unknown
+    # print flats where the geolocation is unknown
     flat.print_uknown(flats_kaw_olx_geo)
     flat.print_uknown(flats_kaw_gumtree_geo)
 
