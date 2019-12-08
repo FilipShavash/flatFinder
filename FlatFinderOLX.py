@@ -398,25 +398,43 @@ class FlatFinder:
         html = """\
         <html>
           <body>
-            <p>Mieszkania z dn. {}</p>
+            <p><h3>Mieszkania z dn. {}</h3></p>
             <p>
         """.format(date_formatted)
         if [True for elem in content1 if elem['address']] or [True for elem in content2 if elem['address']]:
             html = """{}\
-                <a href="{}">Mapa mieszkań</a><br>
+                <b><a href="{}">Mapa mieszkań</a></b><br><br>
             """.format(html, url_flats1)
 
-#            for p in content1['id']:
-#                html = """{}\
-#                    <a href="{}">{}</a>
-#                """.format(html, p['link'], p['title'])
+            for flat in content1:
+                if flat['link'] and flat['address']:
+                    html = """{}\
+                    <a href="{}">{}</a><br>
+                        """.format(html, flat['link'], flat['title'])
 
+            for flat in content2:
+                if flat['link'] and flat['address']:
+                    html = """{}\
+                    <a href="{}">{}</a><br>
+                        """.format(html, flat['link'], flat['title'])
 
 
         if [True for elem in content1 if not elem['address']] or [True for elem in content2 if not elem['address']]:
             html = """{}\
-                <a href= "{}">Mieszkania bez lokalizacji</a>
-            """.format(html, url_flats3)
+                <br><b>Mieszkania bez lokalizacji</b><br>
+            """.format(html)
+
+            for flat in content1:
+                if flat['link'] and not flat['address']:
+                    html = """{}\
+                    <a href="{}">{}</a><br>
+                        """.format(html, flat['link'], flat['title'])
+
+            for flat in content2:
+                if flat['link'] and not flat['address']:
+                    html = """{}\
+                    <a href="{}">{}</a><br>
+                        """.format(html, flat['link'], flat['title'])
 
         html = "{}</p><p>".format(html)
         if [True for elem in content3 if elem['address']] or [True for elem in content4 if elem['address']]:

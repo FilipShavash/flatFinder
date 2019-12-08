@@ -28,13 +28,6 @@
         "title": "DWUPOKOJOWE piękne mieszkanie METRO Bródno"
     },
     {
-        "address": "Warszawa, Targówek, Ogińskiego 1",
-        "district": "Warszawa, Targówek",
-        "id": "569810693",
-        "link": "https://www.olx.pl/oferta/sprzedam-2-pokojowe-bezposrednio-oginskiego-CID3-IDCyRN3.html#343ed7b49d",
-        "title": "sprzedam 2-pokojowe bezpośrednio, Ogińskiego"
-    },
-    {
         "address": null,
         "district": "Warszawa, Praga-Północ",
         "id": "569811871",
@@ -110,5 +103,12 @@
         "id": "573035407",
         "link": "https://www.otodom.pl/oferta/piekne-kawalerki-ktore-moga-zarabiac-dla-ciebie-ID43Pfa.html?",
         "title": "Piękne kawalerki które mogą zarabiać dla Ciebie"
+    },
+    {
+        "address": null,
+        "district": "Warszawa, Praga-Południe",
+        "id": "573389924",
+        "link": "https://www.olx.pl/oferta/mieszkanie-2-pokoje-oddzielna-kuchnia-do-remontu-grenadierow-CID3-IDCNSUA.html#343ed7b49d",
+        "title": "Mieszkanie 2 pokoje oddzielna kuchnia do remontu Grenadierów"
     }
 ]
