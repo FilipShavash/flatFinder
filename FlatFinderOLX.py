@@ -406,10 +406,10 @@ class FlatFinder:
                 <a href="{}">Mapa mieszkań</a><br>
             """.format(html, url_flats1)
 
-            for p in content1['id']:
-                html = """{}\
-                    <a href="{}">{}</a>
-                """.format(html, p['link'], p['title'])
+#            for p in content1['id']:
+#                html = """{}\
+#                    <a href="{}">{}</a>
+#                """.format(html, p['link'], p['title'])
 
 
 

@@ -1,149 +1,114 @@
 [
     {
-        "address": null,
-        "district": "Warszawa, Wola",
-        "id": "412778373",
-        "link": "https://www.olx.pl/oferta/wola-sprawdzony-deweloper-ceny-od-8100-pln-za-m2-CID3-IDrWYwH.html#343ed7b49d",
-        "title": "WOLA-Sprawdzony DEWELOPER Ceny Od 8100 pln ZA M2"
-    },
-    {
-        "address": null,
-        "district": "Warszawa, Praga-Północ",
-        "id": "494927799",
-        "link": "https://www.olx.pl/oferta/partycypacja-tbs-61-m2-strzelecka-praga-polnoc-CID3-IDxuFkr.html#343ed7b49d;promoted",
-        "title": "Partycypacja TBS - 61 m2 Strzelecka Praga Północ"
-    },
-    {
-        "address": "Warszawa, Ursynów, Pileckiego",
-        "district": "Warszawa, Ursynów",
-        "id": "518069755",
-        "link": "https://www.olx.pl/oferta/mieszkanie-2-pokojowe-w-wa-ursynow-pileckiego-114-CID3-IDz3LBN.html#343ed7b49d",
-        "title": "Mieszkanie 2-pokojowe W-wa Ursynów, Pileckiego 114"
-    },
-    {
-        "address": "Warszawa, Praga-Południe, Łukowskiej",
-        "district": "Warszawa, Praga-Południe",
-        "id": "530653522",
-        "link": "https://www.olx.pl/oferta/odstapie-partycypacje-mieszkania-w-systemie-tbs-CID3-IDzUzdM.html#343ed7b49d;promoted",
-        "title": "Odstąpię partycypację mieszkania w systemie Tbs"
-    },
-    {
-        "address": null,
-        "district": "Warszawa, Targówek",
-        "id": "530909083",
-        "link": "https://www.olx.pl/oferta/mieszkanie-3-pok-umeblowane-i-wyposazone-bezposrednio-od-zaraz-CID3-IDzWDHJ.html#343ed7b49d;promoted",
-        "title": "Mieszkanie 3-pok umeblowane i wyposażone - bezpośrednio od zaraz!!!"
-    },
-    {
-        "address": "Warszawa, Ochota, Sąchocka 7",
+        "address": "Warszawa, Ochota, ul. Pruszkowska",
         "district": "Warszawa, Ochota",
-        "id": "533916212",
-        "link": "https://www.otodom.pl/oferta/w-pelni-wyposazone-mieszkanie-ochota-rakowiec-tbs-ID3ZkFK.html?",
-        "title": "W pełni wyposażone mieszkanie Ochota/Rakowiec/TBS"
+        "id": "539651744",
+        "link": "https://www.otodom.pl/oferta/2-pokoje-z-widokiem-na-zielen-blisko-uw-i-um-ID41hOu.html?",
+        "title": "2 pokoje, z widokiem na zieleń. Blisko UW i UM"
     },
     {
-        "address": "Warszawa, Praga-Południe, Grochowskiej 200",
-        "district": "Warszawa, Praga-Południe",
-        "id": "544087511",
-        "link": "https://www.olx.pl/oferta/mieszkanie-49-90-m2-grochowska-200-rondo-witraczna-praga-poludnie-CID3-IDAOV11.html#343ed7b49d",
-        "title": "Mieszkanie 49,90 M2 Grochowska 200, Rondo Witraczna, Praga Południe"
-    },
-    {
-        "address": "Warszawa, Wola, al. Aleja Prymasa Tysiąclecia",
-        "district": "Warszawa, Wola",
-        "id": "547471711",
-        "link": "https://www.otodom.pl/oferta/bezp-gotowe-odbiorjuz-tanie-3-pokoje-garaz-ID41TKX.html?",
-        "title": "BEZP.- GOTOWE - odbiórJUŻ - tanie 3 pokoje - garaż"
-    },
-    {
-        "address": null,
-        "district": "Warszawa, Wola",
-        "id": "548296938",
-        "link": "https://www.olx.pl/oferta/mieszkanie-na-woli-CID3-IDB6B50.html#343ed7b49d;promoted",
-        "title": "Mieszkanie na Woli"
-    },
-    {
-        "address": "Warszawa, Praga-Południe, Opinogórska\r",
-        "district": "Warszawa, Praga-Południe",
-        "id": "548358446",
-        "link": "https://www.olx.pl/oferta/warszawa-praga-pld-przyczolek-grochowski-57m2-CID3-IDB6R54.html#343ed7b49d",
-        "title": "Warszawa Praga Płd – Przyczółek Grochowski - 57m2"
-    },
-    {
-        "address": "Warszawa, Wola, ul. Księcia Janusza",
-        "district": "Warszawa, Wola",
-        "id": "550310477",
-        "link": "https://www.otodom.pl/oferta/wola-48m-3pok-100m-metro-ks-janusza-zielen-ID427hC.html?",
-        "title": "Wola - 48m 3pok. 100m Metro ks. Janusza, zieleń"
-    },
-    {
-        "address": null,
-        "district": "Warszawa, Bielany",
-        "id": "552975593",
-        "link": "https://www.otodom.pl/oferta/bielany-3-pokoje-balkon-1-pietro-bezposr-metro-ID42knO.html?",
-        "title": "Bielany 3 pokoje, balkon-1 piętro, bezpośr., Metro"
-    },
-    {
-        "address": "Warszawa, Mokotów, Bergamotki 2",
-        "district": "Warszawa, Mokotów",
-        "id": "553270122",
-        "link": "https://www.otodom.pl/oferta/bezposrednio-2-pokoje-mokotow-ul-bergamotki-ID42mg5.html?",
-        "title": "Bezpośrednio 2 pokoje Mokotów ul. Bergamotki"
-    },
-    {
-        "address": null,
-        "district": "Warszawa, Bielany",
-        "id": "553359473",
-        "link": "https://www.olx.pl/oferta/bezposrednio-2-pokojowe-przy-metrze-stare-bielany-CID3-IDBrQ4N.html#343ed7b49d",
-        "title": "Bezpośrednio 2-pokojowe przy metrze Stare Bielany"
-    },
-    {
-        "address": "Warszawa, Praga-Południe, ul. Grochowska",
-        "district": "Warszawa, Praga-Południe",
-        "id": "553402489",
-        "link": "https://www.otodom.pl/oferta/gratka-dla-inwestora-w-kamienicy-bezposrednio-ID42n6L.html?",
-        "title": "Gratka dla inwestora, w kamienicy. BEZPOŚREDNIO!"
-    },
-    {
-        "address": "Warszawa, Wola, Pustola ",
-        "district": "Warszawa, Wola",
-        "id": "553848939",
-        "link": "https://www.olx.pl/oferta/2-pokoje-38-m2-wola-ul-pustola-blisko-metra-CID3-IDBtTpp.html#343ed7b49d;promoted",
-        "title": "2 pokoje 38 m2, Wola, ul.Pustola - blisko metra"
-    },
-    {
-        "address": "Warszawa, Praga-Południe, ul. Grochowska",
-        "district": "Warszawa, Praga-Południe",
-        "id": "556065909",
-        "link": "https://www.otodom.pl/oferta/3pokoje-do-remontu-w-kamienicy-loftowe-ID42Ap7.html?",
-        "title": "3pokoje do remontu w kamienicy - loftowe"
-    },
-    {
-        "address": null,
-        "district": "Warszawa, Bielany",
-        "id": "556136483",
-        "link": "https://www.olx.pl/oferta/sprzedam-bezposrednio-mieszkanie-46-25m2-bielany-chomiczowka-CID3-IDBDuwh.html#343ed7b49d",
-        "title": "Sprzedam Bezpośrednio Mieszkanie 46,25m2 Bielany Chomiczówka"
-    },
-    {
-        "address": "Warszawa, Praga-Północ, Wiosennej ",
+        "address": "Warszawa, Praga-Północ, Wileńskiej 37",
         "district": "Warszawa, Praga-Północ",
-        "id": "556171366",
-        "link": "https://www.olx.pl/oferta/gotowiec-inwestycyjny-2x-kawalerka-CID3-IDBDDzU.html#343ed7b49d",
-        "title": "Gotowiec inwestycyjny – 2x kawalerka"
+        "id": "542831329",
+        "link": "https://www.olx.pl/oferta/wilenska-mieszkanie-43m-warszawa-CID3-IDAJFe1.html#343ed7b49d",
+        "title": "Wileńska mieszkanie 43m Warszawa"
     },
     {
-        "address": "Warszawa, Praga-Północ, Zachariasza ",
-        "district": "Warszawa, Praga-Północ",
-        "id": "556371742",
-        "link": "https://www.olx.pl/oferta/mieszkanie-w-kamienicy-praga-polnoc-CID3-IDBEtHM.html#343ed7b49d",
-        "title": "Mieszkanie w kamienicy Praga Północ"
+        "address": "Warszawa, Praga-Południe, ul. Szaserów",
+        "district": "Warszawa, Praga-Południe",
+        "id": "566750585",
+        "link": "https://www.otodom.pl/oferta/odstapie-partycypacje-tbs-warszawa-szaserow-52-m-ID43nYX.html?",
+        "title": "Odstąpię partycypację TBS Warszawa Szaserów 52 m"
     },
     {
-        "address": "Warszawa, Targówek, Łabiszyńska 23",
+        "address": "Warszawa, Targówek, ul. Michała Kleofasa Ogińskiego",
         "district": "Warszawa, Targówek",
-        "id": "556520890",
-        "link": "https://www.olx.pl/oferta/sprzedam-mieszkanie-ul-labiszynska-23-CID3-IDBF6wo.html#343ed7b49d",
-        "title": "Sprzedam mieszkanie ul Łabiszyńska 23"
+        "id": "569407553",
+        "link": "https://www.otodom.pl/oferta/dwupokojowe-piekne-mieszkanie-metro-brodno-ID43yIF.html?;promoted",
+        "title": "DWUPOKOJOWE piękne mieszkanie METRO Bródno"
+    },
+    {
+        "address": "Warszawa, Targówek, Ogińskiego 1",
+        "district": "Warszawa, Targówek",
+        "id": "569810693",
+        "link": "https://www.olx.pl/oferta/sprzedam-2-pokojowe-bezposrednio-oginskiego-CID3-IDCyRN3.html#343ed7b49d",
+        "title": "sprzedam 2-pokojowe bezpośrednio, Ogińskiego"
+    },
+    {
+        "address": null,
+        "district": "Warszawa, Praga-Północ",
+        "id": "569811871",
+        "link": "https://www.otodom.pl/oferta/2pok-38m-praga-polnoc-pelcowizna-jagiellonska-ID43ABw.html?",
+        "title": "2pok, 38m,Praga-Północ, Pelcowizna, Jagiellońska"
+    },
+    {
+        "address": "Warszawa, Ochota, Sanocka 4",
+        "district": "Warszawa, Ochota",
+        "id": "569925260",
+        "link": "https://www.otodom.pl/oferta/atrakcyjne-mieszkanie-na-ochocie-ID43Bgx.html?",
+        "title": "Atrakcyjne mieszkanie na Ochocie"
+    },
+    {
+        "address": null,
+        "district": "Warszawa, Targówek",
+        "id": "570075638",
+        "link": "https://www.olx.pl/oferta/sprzedam-mieszkanie-CID3-IDCzYIm.html#343ed7b49d",
+        "title": "sprzedam mieszkanie"
+    },
+    {
+        "address": "Warszawa, Targówek, Bolesławickiej",
+        "district": "Warszawa, Targówek",
+        "id": "570150142",
+        "link": "https://www.olx.pl/oferta/mieszkanie-42-m2-warszawa-targowek-brodno-CID3-IDCAi62.html#343ed7b49d",
+        "title": "Mieszkanie 42 m2, Warszawa, Targówek, Bródno"
+    },
+    {
+        "address": "Warszawa, Bielany, Literackiej",
+        "district": "Warszawa, Bielany",
+        "id": "570545612",
+        "link": "https://www.olx.pl/oferta/mieszkanie-na-bielanach-45-5-m2-CID3-IDCBVYA.html#343ed7b49d",
+        "title": "Mieszkanie na Bielanach 45,5 m2"
+    },
+    {
+        "address": "Warszawa, Targówek, Skrajnej 3",
+        "district": "Warszawa, Targówek",
+        "id": "571464449",
+        "link": "https://www.olx.pl/oferta/sprzedam-2-pokoje-po-remoncie-blisko-do-metra-CID3-IDCFO0x.html#343ed7b49d",
+        "title": "Sprzedam 2 pokoje po remoncie. Blisko do metra"
+    },
+    {
+        "address": "Warszawa, Praga-Południe, Perkuna",
+        "district": "Warszawa, Praga-Południe",
+        "id": "571884075",
+        "link": "https://www.olx.pl/oferta/bezposrednio-2-pokoje-53-m-miejsce-parkingowe-CID3-IDCHzaH.html#343ed7b49d;promoted",
+        "title": "Bezpośrednio 2 pokoje, 53 m, miejsce parkingowe"
+    },
+    {
+        "address": "Warszawa, Targówek, Palestyńska",
+        "district": "Warszawa, Targówek",
+        "id": "571944590",
+        "link": "https://www.olx.pl/oferta/atrakcyjne-doskonala-komunukacja-CID3-IDCHOUK.html#343ed7b49d",
+        "title": "Atrakcyjne, doskonała komunukacja"
+    },
+    {
+        "address": "Warszawa, Mokotów, Cybernetyki",
+        "district": "Warszawa, Mokotów",
+        "id": "572202585",
+        "link": "https://www.olx.pl/oferta/bezposrednio-nowe-2-pokojowe-mokotow-bez-pcc-CID3-IDCIU1X.html#343ed7b49d;promoted",
+        "title": "Bezpośrednio nowe 2-pokojowe Mokotów bez PCC"
+    },
+    {
+        "address": "Warszawa, Praga-Południe, ul. Grochowska",
+        "district": "Warszawa, Praga-Południe",
+        "id": "572886939",
+        "link": "https://www.otodom.pl/oferta/sprzedam-bezposrednio-mieszkanie-z-lokatorem-ID43OkP.html?",
+        "title": "Sprzedam bezpośrednio mieszkanie z lokatorem."
+    },
+    {
+        "address": "Warszawa, Ochota, ul. Białobrzeska",
+        "district": "Warszawa, Ochota",
+        "id": "573035407",
+        "link": "https://www.otodom.pl/oferta/piekne-kawalerki-ktore-moga-zarabiac-dla-ciebie-ID43Pfa.html?",
+        "title": "Piękne kawalerki które mogą zarabiać dla Ciebie"
     }
 ]
