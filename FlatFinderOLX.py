@@ -10,20 +10,13 @@ from email.mime.multipart import MIMEMultipart
 
 
 class FlatFinder:
+    DATA_PATH = 'data'
+
     def __init__(self):
         # flats from the following districts are to be ignored
-        self.blacklist = ['Białołęka', 'Wilanów', 'Wesoła', 'Wawer', 'Ursus', 'Rembertów', 'Tarchomin', 'Bródno', 'Bemowo', 'Włochy']
+        self.blacklist = ['Marki','Ząbki']
         # blacklist for gumtree spammers
-        self.gumtree_banned_users = ['v1u104723556p1', 'v1u114062620p1', 'v1u106631557p1', 'v1u114307443p1',
-                                     'v1u104708683p1', 'v1u110031518p1', 'v1u112951387p1', 'v1u112279346p1',
-                                     'v1u112589486p1', 'v1u104758381p1', 'v1u104714794p1', 'v1u109432260p1',
-                                     'v1u104747383p1', 'v1u113773662p1', 'v1u106273094p1', 'v1u108900708p1',
-                                     'v1u112799929p1', 'v1u113446522p1', 'v1u113932676p1', 'v1u113729863p1',
-                                     'v1u111780756p1', 'v1u114087830p1', 'v1u114097713p1', 'v1u104729696p1',
-                                     'v1u104780607p1', 'v1u104780607p1', 'v1u104740910p1', 'v1u104686003p1',
-                                     'v1u104765304p1', 'v1u114677170p1', 'v1u113405180p1', 'v1u117645552p1',
-                                     'v1u123901501p1', 'v1u123905547p1', 'v1u112446767p1', 'v1u105050789p1',
-                                     'v1u121059903p1', 'v1u113627808p1']
+        self.gumtree_banned_users = ['v1u104723556p1']
         # Google API key
         self.api_key = os.environ['API_KEY']
         self.city_name = 'Warszawa'
@@ -222,15 +215,15 @@ class FlatFinder:
     def process_gumtree(self, flat_struct):
         html_page = self.safe_call(flat_struct['link'])
         try:
-            flat_size = \
-                html_page.xpath('//div[@class="attribute"]/span[text()="Wielkość (m2)"]/following-sibling::span')[
-                    0].text
-            if int(flat_size) < self.gumtree_min_flat_size:
-                return None
-            room_num = html_page.xpath('//div[@class="attribute"]/span[text()="Liczba pokoi"]/following-sibling::span')[
-                0].text
-            if not any(char.isdigit() for char in room_num):
-                return None
+            # flat_size = \
+            #     html_page.xpath('//div[@class="attribute"]/span[text()="Wielkość (m2)"]/following-sibling::span')[
+            #         0].text
+            # if int(flat_size) < self.gumtree_min_flat_size:
+            #     return None
+            # room_num = html_page.xpath('//div[@class="attribute"]/span[text()="Liczba pokoi"]/following-sibling::span')[
+            #     0].text
+            # if not any(char.isdigit() for char in room_num):
+            #     return None
             flat_struct['address'] = html_page.xpath('//h5[@class="full-address"]/span[@class="address"]')[0].text
         except IndexError:
             return None
@@ -350,7 +343,7 @@ class FlatFinder:
         print('\nPrinting flats with uknown location for {}:'.format(filename))
         self.flats = Utils.read_json_file(filename)
         for flat in self.flats:
-            if flat['address']:
+            if flat['link']:
                 continue
             print('{} {} {}'.format(flat['title'], flat['link'], flat['district']))
 
@@ -385,7 +378,7 @@ class FlatFinder:
         password = os.environ['EMAIL_PASSWORD']
 
         message = MIMEMultipart("alternative")
-        message["Subject"] = "Mieszkania z dn. {}".format(date_formatted)
+        message["Subject"] = "Działki z dn. {}".format(date_formatted)
         message["From"] = sender_email
         message["To"] = receiver_email
         receiver_emails = receiver_email.split(',')
@@ -398,53 +391,45 @@ class FlatFinder:
         html = """\
         <html>
           <body>
-            <p><h3>Mieszkania z dn. {}</h3></p>
+            <p><h3>Działki z dn. {}</h3></p>
             <p>
         """.format(date_formatted)
-        if [True for elem in content1 if elem['address']] or [True for elem in content2 if elem['address']]:
+        if [True for elem in content1] or [True for elem in content2]:
             html = """{}\
-                <b><a href="{}">Mapa mieszkań</a></b><br><br>
-            """.format(html, url_flats1)
-
-            for flat in content1:
-                if flat['link'] and flat['address']:
-                    html = """{}\
-                    <a href="{}">{}</a><br>
-                        """.format(html, flat['link'], flat['title'])
-
-            for flat in content2:
-                if flat['link'] and flat['address']:
-                    html = """{}\
-                    <a href="{}">{}</a><br>
-                        """.format(html, flat['link'], flat['title'])
-
-
-        if [True for elem in content1 if not elem['address']] or [True for elem in content2 if not elem['address']]:
-            html = """{}\
-                <br><b>Mieszkania bez lokalizacji</b><br>
+                <b>Działki Nieporęt +5km</b><br><br>
             """.format(html)
 
             for flat in content1:
-                if flat['link'] and not flat['address']:
+                if flat['link']:
                     html = """{}\
                     <a href="{}">{}</a><br>
                         """.format(html, flat['link'], flat['title'])
 
             for flat in content2:
-                if flat['link'] and not flat['address']:
+                if flat['link']:
                     html = """{}\
                     <a href="{}">{}</a><br>
                         """.format(html, flat['link'], flat['title'])
 
         html = "{}</p><p>".format(html)
-        if [True for elem in content3 if elem['address']] or [True for elem in content4 if elem['address']]:
+
+        if [True for elem in content3] or [True for elem in content4]:
             html = """{}\
-                <a href="{}">Mapa kawalerek</a><br>
-                """.format(html, url_flats2)
-        if [True for elem in content3 if not elem['address']] or [True for elem in content4 if not elem['address']]:
-            html = """{}\
-                <a href= "{}">Kawalerki bez lokalizacji</a>
-                """.format(html, url_flats4)
+                <b>Działki Stanisławów Pierwszy +5km</b><br><br>
+            """.format(html)
+
+            for flat in content3:
+                if flat['link']:
+                    html = """{}\
+                    <a href="{}">{}</a><br>
+                        """.format(html, flat['link'], flat['title'])
+
+            for flat in content4:
+                if flat['link']:
+                    html = """{}\
+                    <a href="{}">{}</a><br>
+                        """.format(html, flat['link'], flat['title'])
+
         html = """{}\
             </p>
           </body>
@@ -460,9 +445,6 @@ class FlatFinder:
 
 if __name__ == "__main__":
     flat = FlatFinder()
-    # flat.process_otodom('test', 'https://www.otodom.pl/oferta/bezposrednio-ochota-wlochy-2-pok-38m2-ID40xbC.html?', 'Warszawa, Praga-Północ')
-    # flat_struct = {'link': 'https://www.gumtree.pl/a-mieszkania-i-domy-sprzedam-i-kupie/praga-poludnie/bezposrednio-od-wlasciciela-+-przestronne-mieszkanie-2-pietro-niedaleko-ronda-wiatraczna/1005021510280911545163909'}
-    # flat.process_gumtree(flat_struct)
 
     today_date = datetime.datetime.now().strftime("%Y_%m_%d_%H_%M")
     flats_gumtree_geo = 'flats_gumtree_geo_{}.json'.format(today_date)
@@ -471,68 +453,36 @@ if __name__ == "__main__":
     flats_kaw_olx_geo = 'flats_kaw_olx_geo_{}.json'.format(today_date)
     flats_kaw_olx_geo = 'flats_kaw_olx_geo_{}.json'.format(today_date)
 
-    print('\nChecking gumtree:')
-    flat.get_flats_gumtree('flats_gumtree',
-                           '/s-mieszkania-i-domy-sprzedam-i-kupie/warszawa/v1c9073l3200008p1?df=ownr&pr=,450000&sort=dt&order=desc', 'id_gumtree.json',  min_flat_size=38)
-    flat.get_geolocalization('flats_gumtree.json', flats_gumtree_geo)
-    print('\nChecking olx:')
+
+    print('\nChecking olx - Nieporet +5km:')
     flat.get_flats_olx('flats_olx',
-                       '/nieruchomosci/mieszkania/sprzedaz/warszawa/?search%5Bfilter_float_price%3Ato%5D=450000&search%5Bfilter_float_m%3Afrom%5D=38&search%5Bfilter_enum_rooms%5D%5B0%5D=two&search%5Bfilter_enum_rooms%5D%5B1%5D=three&search%5Bfilter_enum_rooms%5D%5B2%5D=four&search%5Bphotos%5D=1&search%5Bprivate_business%5D=private&search%5Border%5D=created_at%3Adesc', 'id_olx.json')
+                       '/nieruchomosci/dzialki/nieporet/?search%5Bdist%5D=5', 'id_olx.json')
+
     flat.get_geolocalization('flats_olx.json', flats_olx_geo)
 
-    print('\nKawalerki Checking gumtree:')
-    flat.get_flats_gumtree('flats_kaw_gumtree',
-                           '/s-mieszkania-i-domy-sprzedam-i-kupie/warszawa/v1c9073l3200008p1?df=ownr&pr=,330000&nr=10&sort=dt&order=desc',
-                           'id_kaw_gumtree.json', min_flat_size=29)
-    flat.get_geolocalization('flats_kaw_gumtree.json', flats_kaw_gumtree_geo)
-    print('\nKawalerki Checking olx:')
-    flat.get_flats_olx('fla'
-                       'ts_kaw_olx',
-                       '/nieruchomosci/mieszkania/sprzedaz/warszawa/?search[filter_float_price%3Ato]=330000&search[filter_float_m%3Afrom]=29&search[filter_enum_rooms][0]=one&search[photos]=1&search[private_business]=private&search[order]=created_at%3Adesc',
-                       'id_kaw_olx.json')
+    print('\nChecking gumtree - Nieporet:')
+    flat.get_flats_gumtree('flats_gumtree',
+                            '/s-dzialki/polnocne-powiaty/v1c9194l3200027p1?q=dzialka+nieporet', 'id_gumtree.json')
+    flat.get_geolocalization('flats_gumtree.json', flats_gumtree_geo)
+
+    print('\nChecking olx - Stanisławów Pierwszy +5km:')
+    flat.get_flats_olx('flats_kaw_olx',
+                       '/nieruchomosci/dzialki/stanislawow-pierwszy/?search%5Bdist%5D=5', 'id_kaw_olx.json')
     flat.get_geolocalization('flats_kaw_olx.json', flats_kaw_olx_geo)
 
-    # print flats where the geolocation is unknown
+    print('\nChecking gumtree - Stanisławów Pierwszy:')
+    flat.get_flats_gumtree('flats_kaw_gumtree',
+                           '/s-dzialki/polnocne-powiaty/v1c9194l3200027p1?q=stanislawow+pierwszy',
+                           'id_kaw_gumtree.json')
+    flat.get_geolocalization('flats_kaw_gumtree.json', flats_kaw_gumtree_geo)
+
+    # print ground from Nieporet
     flat.print_uknown(flats_olx_geo)
     flat.print_uknown(flats_gumtree_geo)
 
-    # print flats where the geolocation is unknown
+    # print ground from Stanisławów Pierwszy
     flat.print_uknown(flats_kaw_olx_geo)
     flat.print_uknown(flats_kaw_gumtree_geo)
 
     flat.send_email(flats_gumtree_geo, flats_olx_geo, flats_kaw_gumtree_geo, flats_kaw_olx_geo)
 
-
-    # flats to 450 000
-    # print('\nChecking 450 gumtree:')
-    # flat.get_flats_gumtree('flats_450_gumtree',
-    #                        '/s-mieszkania-i-domy-sprzedam-i-kupie/warszawa/v1c9073l3200008p1?df=ownr&pr=420000,450000&sort=dt&order=desc',
-    #                        'id_450_gumtree.json', min_flat_size=39)
-    # flat.get_geolocalization('flats_450_gumtree.json', 'flats_450_gumtree_geo.json')
-    # print('Checking 450 olx:')
-    # flat.get_flats_olx('flats_450_olx',
-    #                    '/nieruchomosci/mieszkania/sprzedaz/warszawa/?search%5Bfilter_float_price%3Ato%5D=450000&search%5Bfilter_float_price%3Afrom%5D=420000&search%5Bfilter_enum_market%5D%5B0%5D=secondary&search%5Bfilter_float_m%3Afrom%5D=38&search%5Bfilter_enum_rooms%5D%5B0%5D=four&search%5Bfilter_enum_rooms%5D%5B1%5D=three&search%5Bfilter_enum_rooms%5D%5B2%5D=two&search%5Bphotos%5D=1&search%5Bprivate_business%5D=private&search%5Border%5D=created_at%3Adesc',
-    #                    'id_450_olx.json')
-    # flat.get_geolocalization('flats_450_olx.json', 'flats_450_olx_geo.json')
-    # print flats where the geolocation in unknown
-    # flat.print_uknown('flats_450_olx_geo.json')
-    # flat.print_uknown('flats_450_gumtree_geo.json')
-
-    # print('\nChecking gumtree garages:')
-    # flat.get_flats_gumtree('garage1_gumtree',
-    #                        '/s-parking-i-garaz/mokotow/v1c9071l3200012p1', 'garage')
-    # flat.get_geolocalization('garage1_gumtree.json', 'garage1_gumtree_geo.json')
-    # flat.print_uknown('garage1_gumtree_geo.json')
-
-    # flat.get_flats_gumtree('garage_gumtree',
-    #                        '/s-parking-i-garaz/ursynow/v1c9071l3200020p1', 'garage')
-    # flat.get_geolocalization('garage_gumtree.json', 'garage_gumtree_geo.json')
-    # flat.print_uknown('garage_gumtree_geo.json')
-
-    # print('\nChecking gumtree garages:')
-    # flat.get_flats_gumtree('garage2_gumtree',
-    #                        '/s-parking-i-garaz/wola/v1c9071l3200025p1', 'garage')
-    # flat.get_geolocalization('garage2_gumtree.json', 'garage2_gumtree_geo.json')
-    # flat.print_uknown('garage2_gumtree_geo.json')
-
-    # flat.prepare_id_tab()
